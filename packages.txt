@@ -1,3 +1,2 @@
 chromium
-#libgeos-dev
 chromium-driver
