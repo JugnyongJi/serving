@@ -7,3 +7,4 @@ transformers==4.22.0
 webdriver-manager==3.8.3
 torch==1.11.0
 tensorflow==2.10.0
+streamlit-player

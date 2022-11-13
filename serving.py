@@ -6,6 +6,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 from streamlit_chat import message
+from streamlit_player import st_player
 from transformers import AutoTokenizer, pipeline, AutoModelForSequenceClassification
 
 from selenium import webdriver
@@ -99,7 +100,8 @@ def cos_sim(vectors,emotion,meta):
             labels.append(label)
               
         message(f"가수 : {artist},  곡 : {song}")#,    감정 : {labels}")
-        st.video(youtube_link(artist, song))
+        #st.video(youtube_link(artist, song))
+        st.player(youtube_link(artist, song))
 
 
 
