@@ -28,7 +28,8 @@ options.add_experimental_option('useAutomationExtension', False)
 
 
 def youtube_link(artist, song):
-    keyword = artist + "+" + song
+    word = artist + "+" + song
+    keyword = word.replace(" ", "+")
     temp_url = 'https://www.youtube.com/results?search_query='
     url = temp_url + keyword
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
@@ -101,7 +102,7 @@ def cos_sim(vectors,emotion,meta):
               
         message(f"가수 : {artist},  곡 : {song}")#,    감정 : {labels}")
         #st.video(youtube_link(artist, song))
-        st.player(youtube_link(artist, song))
+        st_player(youtube_link(artist, song))
 
 
 
