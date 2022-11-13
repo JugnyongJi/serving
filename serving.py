@@ -114,6 +114,7 @@ if text:
 
         cos_sim(vectors, emotion, data)
 
+
 HtmlFile = open("index.html")
 source_code = HtmlFile.read() 
 components.html(source_code)
