@@ -34,8 +34,9 @@ def youtube_link(artist, song):
     url = temp_url + keyword
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     driver.get(url)
+    
+    driver.find_element(By.XPATH, '//img[@id="img" and @class="style-scope.yt-img-shadow"]').click()
 
-    driver.find_element(By.CLASS_NAME, 'style-scope.yt-img-shadow').click()
     header = driver.current_url
     return header
 
