@@ -1,5 +1,6 @@
 #-*- coding:utf-8 -*- 
 import requests
+import random
 import pandas as pd
 import numpy as np
 import streamlit as st
@@ -14,6 +15,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 
 options = Options()
@@ -35,7 +37,8 @@ def youtube_link(artist, song):
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     driver.get(url)
     
-    driver.find_element(By.XPATH, "//img[@id='img'][class='style-scope.yt-img-shadow']").click()
+    video = WebDriverWait(driver, 1+random.random()).until(lambda driver: driver.find_element(By.ID, 'video-title'))
+    video.click()
 
     header = driver.current_url
     return header
