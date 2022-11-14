@@ -37,7 +37,7 @@ def youtube_link(artist, song):
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     driver.get(url)
     
-    video = WebDriverWait(driver, 1+random.random()).until(lambda driver: driver.find_element(By.ID, 'video-title'))
+    video = WebDriverWait(driver, 15+random.random()).until(lambda driver: driver.find_element(By.ID, 'video-title'))
     video.click()
 
     header = driver.current_url
@@ -120,8 +120,3 @@ if text:
         # vectors = np.load('recsys_data/2015mel.npy')
 
         cos_sim(vectors, emotion, data)
-
-
-HtmlFile = open("index.html")
-source_code = HtmlFile.read() 
-components.html(source_code)
