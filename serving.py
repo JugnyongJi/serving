@@ -49,7 +49,7 @@ def youtube_link(artist, song):
 @st.cache(allow_output_mutation=True)
 def load_model():
     tokenizer = AutoTokenizer.from_pretrained('klue/roberta-large')
-    model = AutoModelForSequenceClassification.from_pretrained("JUNEYEOB/FT_lcs_adafactor_lr1e_6", num_labels=6)
+    model = AutoModelForSequenceClassification.from_pretrained("iamdohyun/batch32_con_lyric_aug_ft_micro_f1_unfreeze", num_labels=6)
     pipe = pipeline(task = 'text-classification', model = model, tokenizer = tokenizer, return_all_scores = True)
     return pipe
 
